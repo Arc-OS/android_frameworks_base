@@ -1201,6 +1201,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mBrightnessMirrorController = new BrightnessMirrorController(mStatusBarWindowContent);
             }
             mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
+            mQSPanel.setTiles(mQSTileHost.getTiles());
             mHeader.setQSPanel(mQSPanel);
             mQSTileHost.setCallback(new QSTileHost.Callback() {
                 @Override
@@ -3810,7 +3811,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             @Override
             public void onGlobalLayout() {
                 mStatusBarWindow.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                mQSPanel.setTiles(mQSTileHost.getTiles());
                 mCommandQueue.resume();
                 mRecreating = false;
             }
